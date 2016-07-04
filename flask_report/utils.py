@@ -72,7 +72,7 @@ def query_to_sql(statement, bind=None):
     if isinstance(statement, sqlalchemy.orm.Query):
         if bind is None:
             bind = statement.session.get_bind(
-                statement._mapper_zero_or_none()
+                statement._mapper_zero()
             )
         statement = statement.statement
     elif bind is None:
